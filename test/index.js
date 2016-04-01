@@ -8,21 +8,32 @@ const matrix = Matrix(data)
 
 exports.put = (test) => {
   const arr = matrix.clone()
-    .put({coordinates:[0,1], value: 'foo'})
-    .put({coordinates:[1,1], value: 'bar'})
+    .put([0,1], 'foo')
+    .put([1,1], 'bar')
 
   test.equal(arr.get([0,1]), 'foo')
   test.equal(arr.get([1,1]), 'bar')
   test.done()
 }
+exports.set = (test) => {
+  const arr = matrix.clone()
+  const arr2 = arr
+    .set([0,1], 'foo')
+    .set([1,1], 'bar')
+
+  test.equal(arr2.get([0,1]), 'foo')
+  test.equal(arr2.get([1,1]), 'bar')
+
+  test.deepEqual(arr.value, matrix.value)
+  test.done()
+}
 exports.map = (test) => {
-  debugger
   test.deepEqual(matrix.map(a=>1).toJS(), [[1,1,1,1],[1,1,1,1],[1,1,1,1]])
   test.deepEqual(matrix.map(a=>a).toJS(), data)
   test.done()
 }
 exports.reduce = (test) => {
-  const coordinates = matrix.reduce((env, value, coordinates)=> env.put({coordinates, value:coordinates}), matrix.clone())
+  const coordinates = matrix.reduce((env, value, coordinates)=> env.put(coordinates, coordinates), matrix.clone())
   test.deepEqual(coordinates.get([0,1]), [0,1])
   test.done()
 }

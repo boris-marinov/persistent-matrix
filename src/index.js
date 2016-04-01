@@ -50,9 +50,12 @@ module.exports = clazz({
     const [x, y] = this.addOffset(coordinates)
     return this.value[y][x]
   },
-  put({coordinates:[x, y], value}) {
+  put ([x, y], value) {
     this.value[y][x] = value 
     return this
+  },
+  set (coordinates, value) {
+    return this.clone().put(coordinates, value)
   },
   reduce (f, id) {
     const value = this.value.reduce((obj, row, y) => {
@@ -64,7 +67,7 @@ module.exports = clazz({
     return value
   },
   map (f) {
-    return this.reduce((matrix, value, coordinates) => matrix.put({coordinates, value: f(value, coordinates)}), this.empty())
+    return this.reduce((matrix, value, coordinates) => matrix.put(coordinates, f(value, coordinates)), this.empty())
   },
   bounds() {
     return [this.value[0].length, this.value.length]
