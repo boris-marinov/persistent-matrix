@@ -4,11 +4,11 @@ const {clazz, getter, setter, alias, lens, modify} = require('persistent-clazz')
 const limit = (min, val, max) => val < min ? min : (val > max ? max : val)
 
 const newArrayWithSize = (size) => {
-  this.standard = this.standard||[];
-  for (var add = size-this.standard.length; add>0; add--) {
-   this.standard.push(undefined)
+  newArrayWithSize.standard = newArrayWithSize.standard||[];
+  for (var add = size-newArrayWithSize.standard.length; add>0; add--) {
+   newArrayWithSize.standard.push(undefined)
   }
-  return this.standard.slice(0,size);
+  return newArrayWithSize.standard.slice(0,size);
 }
 
 module.exports = clazz({
