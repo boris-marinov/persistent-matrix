@@ -5,6 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "babel src/ -d dist",
+    "prepublish": "npm run build",
     "test": "node --harmony_destructuring --es_staging node_modules/nodeunit/bin/nodeunit"
   },
   "repository": {
