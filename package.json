@@ -1,6 +1,6 @@
 {
   "name": "persistent-matrix",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Matrix datastructure based on 2D arrays with support for `map` and `reduce`.",
   "main": "./dist/index.js",
   "scripts": {
