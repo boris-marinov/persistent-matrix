@@ -11,10 +11,8 @@ const newArrayWithSize = (size) => {
   return newArrayWithSize.standard.slice(0,size);
 }
 
-module.exports = clazz({
-  constructor (value) {
-    return {value}
-  },
+const Matrix = clazz({
+  value:[[]],
   empty (bounds) {
     bounds = bounds || this.bounds()
     const [x, y] = bounds
@@ -81,4 +79,4 @@ module.exports = clazz({
     return [(x + offsetX), (y + offsetY)]
   }
 })
-
+module.exports = (value) => Matrix({value})

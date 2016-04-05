@@ -17,7 +17,9 @@
     "url": "https://github.com/boris-marinov/persistent-matrix/issues"
   },
   "homepage": "https://github.com/boris-marinov/persistent-matrix#readme",
-  "dependencies": {},
+  "dependencies": {
+    "persistent-clazz": "^1.1.1"
+  },
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.6.5",

@@ -21,6 +21,7 @@ exports.set = (test) => {
     .set([0,1], 'foo')
     .set([1,1], 'bar')
 
+  debugger
   test.equal(arr2.get([0,1]), 'foo')
   test.equal(arr2.get([1,1]), 'bar')
 
